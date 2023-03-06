@@ -1,0 +1,6 @@
+framework module Pods_IntargramHandmade {
+  umbrella header "Pods-IntargramHandmade-umbrella.h"
+
+  export *
+  module * { export * }
+}

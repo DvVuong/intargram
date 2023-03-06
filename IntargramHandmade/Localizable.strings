@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  IntargramHandmade
+
+  Created by BeeTech on 06/03/2023.
+  
+*/
+//MARK: - E
+"Email cannot be empty" = "Email cannot be empty";
+"Email invalidate" = "Email invalidate";
+// MARK: - P
+"Password cannot be empty" = "Password cannot be empty";
+"Password must be more than 8 characters" = "Password must be more than 8 characters";
+//MARK: - O
+"ok" = "ok";
+// MARK: - S
+"Successful account registration" = "Successful account registration";
+//MARK: - U
+"User name cannot empty" = "User name cannot empty";
+//MARK: - F
+"Full name cannot empty" = "Full name cannot empty";
+//MARK: - E
+"Exactly" = "Exactly";

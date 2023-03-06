@@ -1,0 +1,10 @@
+strings:
+  inputs: IntargramHandmade/Localizable.strings
+  outputs:
+    - templateName: structured-swift5
+      output: IntargramHandmade/SwiftGen/strings.swift
+xcassets:
+  inputs: IntargramHandmade/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: IntargramHandmade/SwiftGen/Assets.swift
