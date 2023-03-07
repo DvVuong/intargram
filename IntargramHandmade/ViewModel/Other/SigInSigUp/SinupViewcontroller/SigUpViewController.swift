@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import Toaster
 
 class SigUpViewController: UIViewController {
     static func instance() -> SigUpViewController {
@@ -24,8 +25,14 @@ class SigUpViewController: UIViewController {
     @IBOutlet weak var lbUserNameError: UILabel!
     @IBOutlet weak var lbPasswordError: UILabel!
     @IBOutlet weak var btnSigin: UIButton!
+    @IBOutlet weak var btnBack: UIButton!
     var viewModel: SigupViewModel = SigupViewModel()
     var bag = DisposeBag()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -34,10 +41,10 @@ class SigUpViewController: UIViewController {
     }
     
     private func bind() {
-        viewModel.siginUser()
     }
     
     private func setupUI() {
+        btnBack.setTitle("", for: .normal)
         btnSigin.isEnabled = false
         lbErrorEmail.isHidden = true
         lbPasswordError.isHidden = true
@@ -107,7 +114,24 @@ class SigUpViewController: UIViewController {
         btnSigin.rx.controlEvent(.touchUpInside)
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                owner.viewModel.siginUser()
+                owner.viewModel.sigUpUser(owner.tfPhonenumberOrEmail.text ?? "",
+                                          password: owner.tfPassword.text ?? "",
+                                          name: owner.tfUserName.text ?? "",
+                                          fullName: owner.tfFullName.text ?? "")
+                owner.showNotification {
+                    owner.navigationController?.popViewController(animated: true)
+                }
             }).disposed(by: bag)
+        
+        btnBack.rx.controlEvent(.touchUpInside)
+            .withUnretained(self)
+            .subscribe(onNext: {owner, _ in
+                owner.navigationController?.popViewController(animated: true)
+            }).disposed(by: bag)
+    }
+    
+    private func showNotification( completed: () -> Void) {
+        Toast(text: L10n.successfulAccountRegistration).show()
+        completed()
     }
 }

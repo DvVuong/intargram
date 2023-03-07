@@ -21,3 +21,5 @@
 "Full name cannot empty" = "Full name cannot empty";
 //MARK: - E
 "Exactly" = "Exactly";
+//MARK: - D
+"Login failed" = "Login failed";

@@ -21,6 +21,8 @@ internal enum L10n {
   internal static let exactly = L10n.tr("Localizable", "Exactly", fallback: "Exactly")
   /// Full name cannot empty
   internal static let fullNameCannotEmpty = L10n.tr("Localizable", "Full name cannot empty", fallback: "Full name cannot empty")
+  /// Login failed
+  internal static let loginFailed = L10n.tr("Localizable", "Login failed", fallback: "Login failed")
   /// ok
   internal static let ok = L10n.tr("Localizable", "ok", fallback: "ok")
   /// Password cannot be empty

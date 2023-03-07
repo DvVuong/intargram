@@ -22,6 +22,7 @@ class SigupViewModel {
     var firebaseService: FirebaseService = FirebaseService()
     var isEnableButton = PublishSubject<Bool>()
     var bag = DisposeBag()
+    
     init() {
         tfFullNamePublisher.map({self.validateFullName($0)}).subscribe(onNext: {[weak self] valiPair in
             self?.fullNameErrorBehaviorSubject.onNext(valiPair.1 ?? "")
@@ -38,16 +39,12 @@ class SigupViewModel {
         tfUserNamePublisher.map({self.validateUserName($0)}).subscribe(onNext: {[weak self] valiPair in
             self?.UserNameErrorBehaviorSubject.onNext(valiPair.1 ?? "")
         }).disposed(by: bag)
-        
     }
     //MARK: - SiginUser
-    func siginUser() {
-        Observable.combineLatest(tfEmailPublisher, tfPasswordPublisher).subscribe(onNext: {[weak self] text in
-            self?.firebaseService.siginUser(text.0, password: text.1)
-        }).disposed(by: bag)
+    func sigUpUser(_ email: String, password: String, name: String, fullName: String) {
+        print("vuongdv email: \(email)")
+        self.firebaseService.sigUpUser(email, password: password, name: name, fullName: fullName)
     }
-    
-    
     
     //MARK: - Validate,Email, Password
     func validateEmail(_ email: String) -> (Bool, String?) {
