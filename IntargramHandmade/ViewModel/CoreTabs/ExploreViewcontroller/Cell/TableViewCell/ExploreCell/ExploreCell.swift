@@ -17,6 +17,7 @@ class ExploreCell: UITableViewCell {
     @IBOutlet weak var btnHeart: UIButton!
     @IBOutlet weak var btnComment: UIButton!
     @IBOutlet weak var btnSend: UIButton!
+    @IBOutlet weak var lbComment: UILabel!
     
     @IBOutlet weak var btnBookmark: UIButton!
     var actionBtnHeart: (() -> Void)?
@@ -24,12 +25,23 @@ class ExploreCell: UITableViewCell {
     var actionCmmt: (() -> Void)?
     var actionSend: (() -> Void)?
     var actionBookmark: (() -> Void)?
+    var actionLbCmt: (() -> Void)?
     var bag = DisposeBag()
     override func awakeFromNib() {
         super.awakeFromNib()
+        lbComment.isUserInteractionEnabled = true
         setupButton()
         setupAvt()
         actioncButton()
+        setuoGesTure()
+    }
+    
+    private func setuoGesTure() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapCmt(_:)))
+        lbComment.addGestureRecognizer(tapGesture)
+    }
+    @objc func didTapCmt(_ getture: UITapGestureRecognizer) {
+        self.actionLbCmt?()
     }
     
     private func setupButton() {

@@ -14,11 +14,13 @@ class ExploreViewController: UIViewController {
     }
     
     @IBOutlet weak var tbvNews: UITableView!
-    
+    var models: [Model] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTbvNew()
+        let mo1 = Model(text: "asd")
+        models.append(mo1)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -66,8 +68,8 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == 0 {
             let cell = tbvNews.dequeueReusableCell(withIdentifier: "NewsTableCell", for: indexPath) as! NewsTableViewCell
-            //cell.reloadCollectionView()
-            //cell.postNewsCollection.reloadData()
+            cell.reloadCollectionView()
+            cell.config(models)
             cell.backgroundColor = UIColor.red
             return cell
         }else {
@@ -90,15 +92,29 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource {
             cell.actionBookmark = {
                 print("vuongdv Bookmark")
             }
+            
+            cell.actionLbCmt = {
+                let vc = CommentViewController.instance()
+                self.navigationController?.pushViewController(vc, animated: true)
+                print("vuongdv Lable")
+            }
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 140
+            return 135
         }else {
             return 630
         }
+    }
+}
+
+
+struct Model {
+    var text: String
+    init(text: String) {
+        self.text = text
     }
 }

@@ -37,6 +37,8 @@
 		9DEDDC9829B58E66009ECAB6 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEDDC9729B58E66009ECAB6 /* PostViewController.swift */; };
 		9DEDDC9B29B59005009ECAB6 /* SigUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DEDDC9A29B59005009ECAB6 /* SigUpViewController.swift */; };
 		A5734621C6F585662A48F49A /* Pods_IntargramHandmade.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF76A9F247DFA2CE52ACE194 /* Pods_IntargramHandmade.framework */; };
+		E272029B29B8F20400EEF34D /* CommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E272029929B8F20300EEF34D /* CommentViewController.swift */; };
+		E272029C29B8F20400EEF34D /* CommentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E272029A29B8F20300EEF34D /* CommentViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		9DEDDC9729B58E66009ECAB6 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		9DEDDC9A29B59005009ECAB6 /* SigUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigUpViewController.swift; sourceTree = "<group>"; };
 		9E3291E902E99F8A872CBD34 /* Pods-IntargramHandmade.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IntargramHandmade.release.xcconfig"; path = "Target Support Files/Pods-IntargramHandmade/Pods-IntargramHandmade.release.xcconfig"; sourceTree = "<group>"; };
+		E272029929B8F20300EEF34D /* CommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewController.swift; sourceTree = "<group>"; };
+		E272029A29B8F20300EEF34D /* CommentViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentViewController.xib; sourceTree = "<group>"; };
 		FF76A9F247DFA2CE52ACE194 /* Pods_IntargramHandmade.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IntargramHandmade.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -161,6 +165,7 @@
 		9D9986EE29B57E530056C994 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E272029829B8F0C400EEF34D /* CommentViewController */,
 				9D3D323329B72B9700D995FF /* PopupView */,
 				9D99870A29B581F50056C994 /* Other */,
 				9D9986FE29B580B00056C994 /* NotificationViewController */,
@@ -346,6 +351,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		E272029829B8F0C400EEF34D /* CommentViewController */ = {
+			isa = PBXGroup;
+			children = (
+				E272029929B8F20300EEF34D /* CommentViewController.swift */,
+				E272029A29B8F20300EEF34D /* CommentViewController.xib */,
+			);
+			path = CommentViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -407,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DB6479029B5C95E005E5A72 /* Localizable.strings in Resources */,
+				E272029C29B8F20400EEF34D /* CommentViewController.xib in Resources */,
 				9DC8F91C29B826F300EFDB75 /* ExploreCell.xib in Resources */,
 				9D9986E529B57DCC0056C994 /* LaunchScreen.storyboard in Resources */,
 				9DB6478D29B5A362005E5A72 /* GoogleService-Info.plist in Resources */,
@@ -468,6 +483,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E272029B29B8F20400EEF34D /* CommentViewController.swift in Sources */,
 				9DEDDC9B29B59005009ECAB6 /* SigUpViewController.swift in Sources */,
 				9D3D323D29B72EFD00D995FF /* PopUp.swift in Sources */,
 				9DEDDC9829B58E66009ECAB6 /* PostViewController.swift in Sources */,
@@ -634,7 +650,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4QZ97XH7T7;
+				DEVELOPMENT_TEAM = P4XWF3FX86;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IntargramHandmade/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -648,7 +664,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = HN.IntargramHandmade;
+				PRODUCT_BUNDLE_IDENTIFIER = HN.IntargramHandmad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -664,7 +680,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4QZ97XH7T7;
+				DEVELOPMENT_TEAM = P4XWF3FX86;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = IntargramHandmade/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -678,7 +694,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = HN.IntargramHandmade;
+				PRODUCT_BUNDLE_IDENTIFIER = HN.IntargramHandmad;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

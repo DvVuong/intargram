@@ -8,11 +8,15 @@
 import UIKit
 
 class PostCollectionViewCell: UICollectionViewCell {
+    @IBOutlet weak var circelView: UIView!
+    @IBOutlet weak var lbtext: UILabel!
+    @IBOutlet weak var imgPlust: UIImageView!
     
-    @IBOutlet weak var view: UIView!
-    @IBOutlet weak var subView: UIView!
-    @IBOutlet weak var avtUser: UIImageView!
-    @IBOutlet weak var lbText: UILabel!
+    static var indentifier = "PostCollectionViewCell"
+    
+    static func nib() -> UINib {
+        return UINib(nibName: "PostCollectionViewCell", bundle: nil)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,8 +24,16 @@ class PostCollectionViewCell: UICollectionViewCell {
     }
 
     func setupSubView() {
-        subView?.layer.cornerRadius = subView.frame.height / 2
-        subView?.layer.masksToBounds = true
+        circelView?.layer.cornerRadius = circelView.frame.height / 2
+        circelView?.layer.masksToBounds = true
+        imgPlust?.layer.cornerRadius = imgPlust.frame.height / 2
+        imgPlust?.layer.masksToBounds = true
+        imgPlust?.layer.borderWidth = 2
+        imgPlust?.layer.borderColor = UIColor.white.cgColor
+    }
+    
+    func bindData(_ tesxt: String) {
+        lbtext?.text = tesxt
     }
 
 }
