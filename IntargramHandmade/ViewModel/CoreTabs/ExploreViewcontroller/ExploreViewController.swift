@@ -37,14 +37,14 @@ class ExploreViewController: UIViewController {
     }
     
     private func setupTbvNew() {
-        tbvNews.delegate = self
-        tbvNews.dataSource = self
-        let nib = UINib(nibName: "NewsTableViewCell", bundle: nil)
-        tbvNews.register(nib, forCellReuseIdentifier: "NewsTableCell")
-        
+        tbvNews?.delegate = self
+        tbvNews?.dataSource = self
+        let postNews = UINib(nibName: "NewsTableViewCell", bundle: nil)
+        tbvNews?.register(postNews, forCellReuseIdentifier: "NewsTableCell")
+        let exploreNews = UINib(nibName: "ExploreCell", bundle: nil)
+        tbvNews?.register(exploreNews, forCellReuseIdentifier: "exploreCell")
     }
     
-
     @objc func didTapHeart(_ sender: UIButton) {
         let vc = NotificationViewController.instance()
         self.navigationController?.pushViewController(vc, animated: true)
@@ -64,9 +64,41 @@ extension ExploreViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tbvNews.dequeueReusableCell(withIdentifier: "NewsTableCell", for: indexPath) as! NewsTableViewCell
-        
-        cell.backgroundColor = UIColor.yellow
-        return cell
+        if indexPath.row == 0 {
+            let cell = tbvNews.dequeueReusableCell(withIdentifier: "NewsTableCell", for: indexPath) as! NewsTableViewCell
+            //cell.reloadCollectionView()
+            //cell.postNewsCollection.reloadData()
+            cell.backgroundColor = UIColor.red
+            return cell
+        }else {
+            let cell = tbvNews.dequeueReusableCell(withIdentifier: "exploreCell", for: indexPath) as! ExploreCell
+            cell.actionBtnHeart = {
+                print("vuongdv Like Like")
+            }
+            cell.actionCmmt = {
+                print("vuongdv Comment")
+            }
+            
+            cell.actionSend = {
+                print("vuongdv Send")
+            }
+            
+            cell.actionBtMore = {
+                print("vuongdv More")
+            }
+            
+            cell.actionBookmark = {
+                print("vuongdv Bookmark")
+            }
+            return cell
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 0 {
+            return 140
+        }else {
+            return 630
+        }
     }
 }
